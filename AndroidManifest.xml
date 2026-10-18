@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zai.yfac"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28"/>
+
+    <!-- No sharedUserId="android.uid.system" — installs without platform signing -->
+    <!-- No uses-permission for signature-protected custom perms — those silently fail -->
+
+    <application
+        android:label="YF AC Controller"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:theme="@android:style/Theme.DeviceDefault.Light"
+        android:allowBackup="false">
+
+        <!--
+            YF Tech shared libraries. The <uses-library> declarations make the
+            com.yftech.vehicle.sdk and com.yftech.vehicle.internal.adapter
+            classes available on the app's classpath at runtime, assuming they
+            are present on the device. If they are absent, the app launches but
+            the fragments display "not available" messages instead of crashing.
+        -->
+        <uses-library android:name="com.yftech.vehicle.sdk" android:required="false"/>
+        <uses-library android:name="com.yftech.vehicle.internal.adapter" android:required="false"/>
+        <uses-library android:name="com.yftech.car.framework" android:required="false"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="YF AC Controller">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
